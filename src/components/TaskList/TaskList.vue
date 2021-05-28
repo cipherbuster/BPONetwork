@@ -26,6 +26,9 @@
           <option value="5">5</option>
         </select>
       </div>
+      <button :to="'/task/' + 12" class="btn btn-primary pos" @click="updateTask(12)">
+          <i class="icon icon-plus"></i><b>&nbsp&nbspDODAJ ZADANIE</b>
+      </button>
     </div>
 
 
@@ -60,6 +63,8 @@
 <script>
 
     import TaskItem from "./TaskItem";
+    import store from "vuex";
+    import { mapMutations } from "vuex";
 
     export default {
         name: "TaskList",
@@ -83,7 +88,7 @@
               return this.$store.getters.initiatedP4;
             }else if (this.status === "initiated" && this.priority == 5){
               return this.$store.getters.initiatedP5;
-            }else if(this.status === "initiated" && this.priority === "-"){
+            }else if(this.status === "initiated" && this.priority === "all"){
                 return this.$store.getters.initiated;
             }
 
@@ -99,7 +104,7 @@
               return this.$store.getters.inProgressP4;
             }else if(this.status === "inProgress" && this.priority == 5){
               return this.$store.getters.inProgressP5;
-            }else if(this.status === "inProgress" && this.priority === "-"){
+            }else if(this.status === "inProgress" && this.priority === "all"){
                 return this.$store.getters.inProgress;
             }
 
@@ -115,7 +120,7 @@
               return this.$store.getters.completedP4;
             }else if(this.status === "completed" && this.priority == 5){
               return this.$store.getters.completedP5;
-            }else if(this.status === "completed" && this.priority === "-"){
+            }else if(this.status === "completed" && this.priority === "all"){
                 return this.$store.getters.completed;
             }
 
@@ -131,7 +136,7 @@
                 return this.$store.getters.acceptedP4;
             }else if(this.status === "accepted" && this.priority == 5){
                 return this.$store.getters.acceptedP5;
-            }else if(this.status === "accepted" && this.priority === "-"){
+            }else if(this.status === "accepted" && this.priority === "all"){
                 return this.$store.getters.accepted;
             }
 
@@ -147,7 +152,7 @@
               return this.$store.getters.archivedP4;
             }else if(this.status === "archived" && this.priority == 5){
               return this.$store.getters.archivedP5;
-            }else if(this.status === "archived" && this.priority === "-"){
+            }else if(this.status === "archived" && this.priority === "all"){
               return this.$store.getters.archived;
             }
 
@@ -156,9 +161,29 @@
             }
           }
         },
+        methods: {
+            ...mapMutations(["update"]),
+            updateTask(e, type) {
+                var noweZadanie = {
+                  id: 12,
+                  performer: "Proszę podać imię i nazwisko oddzielone spacją",
+                  description: "Proszę podać opis zadania",
+                  status: "",
+                  deadline: "2021-05-28",
+                  priority: ""
+                };
+                this.tasks.push(noweZadanie);
+            }
+        },
         components: {
             TaskItem
         }
     };
 
 </script>
+
+<style scope>
+ .pos {
+   margin: 30px;
+ }
+</style>

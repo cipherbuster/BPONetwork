@@ -17,7 +17,7 @@
             {{ task.priority }}
         </td>
         <td>
-            <router-link :to="{ name: 'TaskEdit', params: { id: task.id } }" class="btn btn-primary">
+            <router-link :to="'/task/' + task.id" class="btn btn-primary">
                 <i class="icon icon-edit"></i>
             </router-link>
         </td>
@@ -32,6 +32,7 @@
 <script>
 
     import { mapActions } from "vuex";
+    import { mapMutations } from "vuex";
 
     export default {
         name: "TaskItem",
@@ -47,12 +48,12 @@
             if (month < 10) month = "0" + month;
             if (day < 10) day = "0" + day;
 
-            return year + "." + month + "." + day;
+            return year + "-" + month + "-" + day;
           },
           ...mapActions(["remove"]),
           removeTask(id) {
             this.remove({ id });
-          }
+          },
         }
     };
 

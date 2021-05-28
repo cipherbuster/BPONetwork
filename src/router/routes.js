@@ -15,7 +15,7 @@ export default [
     }
   },
   {
-    path: '/task',
+    path: '/task/:id',
     name: 'task',
     components: {
       default: TaskDescription,
