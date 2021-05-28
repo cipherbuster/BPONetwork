@@ -1,8 +1,9 @@
-import TaskList from '../components/TaskList';
-import TaskDescription from '../components/TaskDescription';
-import headingList from '../components/headingList';
-import headingDescription from '../components/headingDescription';
-import heading from '../components/heading';
+import TaskList from '../components/TaskList/TaskList';
+import TaskDescription from '../components/TaskDescription/TaskDescription';
+import headingList from '../components/TaskList/headingList';
+import headingDescription from '../components/TaskDescription/headingDescription';
+import heading from '../components/Home/heading';
+import home from '../components/Home/home'
 
 export default [
   {
@@ -24,6 +25,9 @@ export default [
   {
     path: '/',
     name: 'heading',
-    component: heading
-  }
+    components: {
+      default: home,
+      heading: heading
+    }
+  },
 ];

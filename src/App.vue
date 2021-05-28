@@ -1,13 +1,12 @@
 <template>
   <div id="app">
 
-    <div>
+    <div class="container grid-lg">
         <router-view name="heading"></router-view>
     </div>
 
-    <div>
+    <div class="container grid-lg">
         <router-view></router-view>
-
     </div>
 
     <div class="container grid-lg">
