@@ -26,7 +26,7 @@
           <option value="5">5</option>
         </select>
       </div>
-      <button :to="'/task/' + 12" class="btn btn-primary pos" @click="updateTask(12)">
+      <button class="btn btn-primary pos" @click="addTask()">
           <i class="icon icon-plus"></i><b>&nbsp&nbspDODAJ ZADANIE</b>
       </button>
     </div>
@@ -162,18 +162,10 @@
           }
         },
         methods: {
-            ...mapMutations(["update"]),
-            updateTask(e, type) {
-                var noweZadanie = {
-                  id: 12,
-                  performer: "Proszę podać imię i nazwisko oddzielone spacją",
-                  description: "Proszę podać opis zadania",
-                  status: "",
-                  deadline: "2021-05-28",
-                  priority: ""
-                };
-                this.tasks.push(noweZadanie);
-            }
+            ...mapMutations(["add"]),
+            addTask() {
+              this.add();
+            },
         },
         components: {
             TaskItem
