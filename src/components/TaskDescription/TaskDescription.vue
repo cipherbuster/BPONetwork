@@ -16,7 +16,6 @@
 
         <label class="form-label">Status</label>
         <select class="form-select col-3" :value="task.status" @change="updateTask($event, 'status')">
-          <option value="">all</option>
           <option value="initiated">initiated</option>
           <option value="inProgress">inProgress</option>
           <option value="completed">completed</option>
@@ -26,12 +25,11 @@
 
       <div class="form-group col-6">
           <label class="form-label">Deadline</label>
-          <input type="date" class="form-input" :value="formatDate(task.deadline)" @change="updateTask($event, 'description')" />
+          <input type="date" class="form-input col-6" :value="formatDate(task.deadline)" @change="updateTask($event, 'description')" />
       </div>
 
       <label class="form-label">Priorytet</label>
       <select class="form-select col-3" :value="task.priority" @change="updateTask($event, 'priority')">
-        <option value="all">all</option>
         <option value="0">0</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -48,7 +46,7 @@
 
 <script>
 
-    import { mapMutations } from "vuex";
+    import { mapActions } from "vuex";
 
     export default {
         name: 'TaskDescription',
@@ -71,7 +69,7 @@
 
             return year + "-" + month + "-" + day;
           },
-            ...mapMutations(["update"]),
+            ...mapActions(["update"]),
             updateTask(e, type) {
                 this.update({
                     id: this.task.id,

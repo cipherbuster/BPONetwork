@@ -1,4 +1,6 @@
 import _ from "lodash";
+import VueRouter from 'vue-router';
+
 
 export default {
 
@@ -8,31 +10,25 @@ export default {
       state.tasks[index][payload.type] = payload.value;
   },
 
-  add(state) {
-    var index = -Infinity;
-    var indexTable = [];
-    state.tasks.forEach( (e) => {
-      indexTable.push(e.id);
-      console.log(indexTable);
-    });
+  add(state, payload) {
 
-    indexTable.forEach( (e) => {
-      if(index < e){
-        index = e
-        console.log(index);
-      };
-    });
+    // Poniżej usawiam datę, aby wstawić do tworzonego obiektu zadania
+    var d = new Date();
 
-      var noweZadanie = {
-      id: ++index,
+    //Tworzę obiekt nowego zadania
+    var noweZadanie = {
+      id: payload.index,
       performer: "Proszę podać imię i nazwisko oddzielone spacją",
       description: "Proszę podać opis zadania",
       status: "initiated",
-      deadline: "2021-05-28",
+      deadline: d,
       priority: "0"
     };
+
+    //wstawiam nowe zadanie do tabeli tasks w store
     state.tasks.push(noweZadanie);
   },
+
 
    remove(state, payload) {
         const index = _.findIndex(state.tasks, ["id", payload.id]);

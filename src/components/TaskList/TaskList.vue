@@ -26,7 +26,7 @@
           <option value="5">5</option>
         </select>
       </div>
-      <button class="btn btn-primary pos" @click="addTask()">
+      <button class="btn btn-primary pos" @click="$router.push('/task/' + addTask());">
           <i class="icon icon-plus"></i><b>&nbsp&nbspDODAJ ZADANIE</b>
       </button>
     </div>
@@ -64,7 +64,7 @@
 
     import TaskItem from "./TaskItem";
     import store from "vuex";
-    import { mapMutations } from "vuex";
+    import { mapActions } from "vuex";
 
     export default {
         name: "TaskList",
@@ -75,6 +75,8 @@
           }
         },
         computed:{
+          // Poniżej ustawiam wszystkie możliwości dla podwójnego filtru status & priority
+          // i wywołuję odpowiedni getter.
           tasks() {
             if(this.status === "initiated" && this.priority == 0){
               return this.$store.getters.initiatedP0;
@@ -159,12 +161,30 @@
             else {
               return this.$store.state.tasks;
             }
-          }
+          },
         },
         methods: {
-            ...mapMutations(["add"]),
+            ...mapActions(["add"]),
             addTask() {
-              this.add();
+              // Poniżej w pętlach forEach tworzę tablicę złożoną ze wszystkich pól id tablicy tasks
+              // oraz szukam maksymalnego id w tej tablicy, które później powiększone o 1 będzie id
+              // dla nowego rekordu (obiektu zadania)
+              var index = 0;
+              var indexTable = [];
+              this.tasks.forEach( (e) => {
+                indexTable.push(e.id);
+              });
+
+              indexTable.forEach( (e) => {
+                if(index < e){
+                  index = e
+                };
+              });
+              index++;
+              this.add({
+                index: index
+              });
+              return index;
             },
         },
         components: {
