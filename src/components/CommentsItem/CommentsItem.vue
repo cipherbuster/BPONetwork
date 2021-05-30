@@ -26,9 +26,9 @@
         props: ['comment', 'index'],
         methods:{
           ...mapActions(["removeCommentAction"]),
-          removeComment (id, idComments) {
+          removeComment (idTask, idComments) {
             this.removeCommentAction({
-              id: id,
+              idTask: idTask,
               idComments: idComments
             });
           },

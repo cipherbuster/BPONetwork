@@ -148,8 +148,20 @@ export default {
     comments(state) {
 
         return id => {
-            const index = _.findIndex(state.tasks, ["id", id]);
-            return state.tasks[index].comments;
+            const index = _.findIndex(state.comments, ["idTask", id]);
+
+            if (index >= 0) {
+
+              var hCommentsArray = [];
+
+              for (var i = 0; i < state.comments.length; i++) {
+                if (state.comments[i].idTask == id) {
+                hCommentsArray.push(state.comments[i]);
+               };
+              }
+            };
+
+            return hCommentsArray;
         };
 
     },

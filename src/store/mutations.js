@@ -37,8 +37,15 @@ export default {
     },
 
     removeCommentMutation(state, payload) {
-      const index = _.findIndex(state.tasks, ["id", payload.id]);
-      const indexComment = _.findIndex(state.tasks[index].comments, ["idComments", payload.idComments]);
-      state.tasks[index].comments.splice(indexComment, 1);
-     }
+      const index = _.findIndex(state.comments, ["idTask", payload.idTask]);
+
+      if (index >= 0) {
+
+          for (var i = 0; state.comments.length; i++) {
+              if (state.comments[i].idTask == payload.idTask && state.comments[i].idComments == payload.idComments) {
+              state.comments.splice(i, 1); return;
+            };
+        }
+      }
+    }
 };

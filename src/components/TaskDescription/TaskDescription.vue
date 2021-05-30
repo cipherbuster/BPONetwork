@@ -40,23 +40,28 @@
 
       <h1>Komentarze</h1>
 
-      <table class="table table-striped table-hover">
-          <thead>
-              <tr>
-                  <th>Lp.</th>
-                  <th>Komentarz</th>
-                  <th>Edytuj</th>
-                  <th>Usuń</th>
-              </tr>
-          </thead>
-          <tbody>
-              <CommentsItem v-for="(comment, index) in comments"
-              :comment="comment"
-              :index="index"
-              :key="comment.idComments"
-              />
-          </tbody>
-      </table>
+      <div v-if="isComments()">
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Lp.</th>
+                    <th>Komentarz</th>
+                    <th>Edytuj</th>
+                    <th>Usuń</th>
+                </tr>
+            </thead>
+            <tbody>
+                <CommentsItem v-for="(comment, index) in comments"
+                :comment="comment"
+                :index="index"
+                :key="comment.idComments"
+                />
+            </tbody>
+        </table>
+
+      </div>
+      <div class="toast" v-else> Brak komentarzy </div>
 
         <br><br>
 
@@ -93,11 +98,24 @@
 
             return year + "-" + month + "-" + day;
           },
-            ...mapActions(["update"]),
+
+          isComments: function () {
+            const id = Number(this.$route.params.id);
+
+            const index = _.findIndex(this.$store.state.comments, ["idTask", id]);
+        
+            if (index >= 0) {
+              return true
+            } else {
+              return false
+            }
+          },
+
+
+           ...mapActions(["update"]),
             updateTask(e, type) {
                 this.update({
                     id: this.task.id,
-                    type: type,
                     value: e.target.value
                 })
             },
