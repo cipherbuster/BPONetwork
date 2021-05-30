@@ -18,7 +18,6 @@ export default {
     add({ commit, state }, payload) {
       // Tutaj można połączyć się za pomocą np. axios z serverem i dodać zadanie z pustymi polami
       // najpierw na serwerze, a po zwróceniu 200 dodać pusty rekord do tabeli.
-      // następnie za pomocą update można edytować te puste pola (też łączać się najpierw z bazą danych)
       commit ("add", payload);
     },
 
@@ -30,4 +29,17 @@ export default {
         commit("removeCommentMutation", payload);
     }, 1000);
   },
+
+  addCommentAction({ commit, state }, payload) {
+    // Tutaj można połączyć się za pomocą np. axios z serverem i dodać komentarz z pustymi polami
+    // najpierw na serwerze, a po zwróceniu 200 dodać pusty rekord do tabeli.
+    commit ("addCommentMutation", payload);
+  },
+
+  updateCommentAction({ commit, state }, payload) {
+    // Tutaj można połączyć się za pomocą np. axios z serverem i zmienić komentarz
+    // najpierw na serwerze, a po zwróceniu 200 w tabeli.
+    commit ("updateCommentMutation", payload);
+  },
+
 };

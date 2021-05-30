@@ -1,5 +1,6 @@
 import _ from "lodash";
 import VueRouter from 'vue-router';
+import Vue from 'vue';
 
 
 export default {
@@ -16,7 +17,7 @@ export default {
     var d = new Date();
 
     //Tworzę obiekt nowego zadania
-    var noweZadanie = {
+    var newTask = {
       id: payload.index,
       performer: "Proszę podać imię i nazwisko oddzielone spacją",
       description: "Proszę podać opis zadania",
@@ -26,7 +27,7 @@ export default {
     };
 
     //wstawiam nowe zadanie do tabeli tasks w store
-    state.tasks.push(noweZadanie);
+    Vue.set(state.tasks, state.tasks.length,newTask);
   },
 
 
@@ -47,5 +48,25 @@ export default {
             };
         }
       }
-    }
+    },
+
+    addCommentMutation(state, payload) {
+
+      //Tworzę obiekt nowego zadania
+      var newComment = {
+        idComments: payload.index,
+        idTask: payload.indexTask,
+        content: "Wpisz treść"
+      };
+
+
+      //wstawiam nowe zadanie do tabeli comments w store
+      Vue.set(state.comments, state.comments.length, newComment);
+    },
+
+    updateCommentMutation(state, payload) {
+       Vue.set(state.comments[payload.id], "content", payload.value);
+    },
+
+
 };

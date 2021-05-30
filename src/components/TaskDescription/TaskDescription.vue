@@ -40,6 +40,10 @@
 
       <h1>Komentarze</h1>
 
+      <button class="btn btn-primary" @click="addComment()">
+          <i class="icon icon-plus"></i><b>&nbsp&nbspDODAJ KOMENTARZ</b>
+      </button>
+
       <div v-if="isComments()">
 
         <table class="table table-striped table-hover">
@@ -103,12 +107,41 @@
             const id = Number(this.$route.params.id);
 
             const index = _.findIndex(this.$store.state.comments, ["idTask", id]);
-        
+
             if (index >= 0) {
               return true
             } else {
               return false
             }
+          },
+
+          ...mapActions(["addCommentAction"]),
+          addComment() {
+            // Poniżej w pętlach forEach tworzę tablicę złożoną ze wszystkich pól id tablicy comments
+            // oraz szukam maksymalnego id w tej tablicy, które później powiększone o 1 będzie id
+            // dla nowego rekordu (obiektu zadania)
+            var index = 0;
+            var indexTable = [];
+            this.comments.forEach( (e) => {
+              indexTable.push(e.idComments);
+            });
+
+            indexTable.forEach( (e) => {
+              if(index < e){
+                index = e
+              };
+            });
+            index++;
+
+            //Poniżej ustalam idTask dla obecnego zadania.
+
+            const idT = this.$route.params.id;
+
+            this.addCommentAction({
+              index: index,
+              indexTask: idT
+            });
+
           },
 
 
@@ -119,10 +152,12 @@
                     value: e.target.value
                 })
             },
+
         },
         components: {
           CommentsItem
-        }
+        },
+
     };
 
 </script>
