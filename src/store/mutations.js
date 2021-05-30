@@ -34,5 +34,11 @@ export default {
         const index = _.findIndex(state.tasks, ["id", payload.id]);
 
         state.tasks.splice(index, 1);
-    }
+    },
+
+    removeCommentMutation(state, payload) {
+      const index = _.findIndex(state.tasks, ["id", payload.id]);
+      const indexComment = _.findIndex(state.tasks[index].comments, ["idComments", payload.idComments]);
+      state.tasks[index].comments.splice(indexComment, 1);
+     }
 };

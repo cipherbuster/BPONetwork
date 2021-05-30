@@ -122,5 +122,35 @@ export default {
     },
     archived(state) {
         return state.tasks.filter(task => task.status === "archived");
-    }
+    },
+
+    priority0(state) {
+        return state.tasks.filter(task => task.priority === 0);
+    },
+    priority1(state) {
+        return state.tasks.filter(task => task.priority === 1);
+    },
+    priority2(state) {
+        return state.tasks.filter(task => task.priority === 2);
+    },
+    priority3(state) {
+        return state.tasks.filter(task => task.priority === 3);
+    },
+    priority4(state) {
+        return state.tasks.filter(task => task.priority === 4);
+    },
+    priority5(state) {
+        return state.tasks.filter(task => task.priority === 5);
+    },
+
+    // Getter do wyświetlania komentarzy
+
+    comments(state) {
+
+        return id => {
+            const index = _.findIndex(state.tasks, ["id", id]);
+            return state.tasks[index].comments;
+        };
+
+    },
 };

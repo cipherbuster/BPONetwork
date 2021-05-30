@@ -25,7 +25,7 @@
 
       <div class="form-group col-6">
           <label class="form-label">Deadline</label>
-          <input type="date" class="form-input col-6" :value="formatDate(task.deadline)" @change="updateTask($event, 'description')" />
+          <input type="date" class="form-input col-6" :value="formatDate(task.deadline)" @change="updateTask($event, 'deadline')" />
       </div>
 
       <label class="form-label">Priorytet</label>
@@ -38,6 +38,26 @@
         <option value="5">5</option>
       </select>
 
+      <h1>Komentarze</h1>
+
+      <table class="table table-striped table-hover">
+          <thead>
+              <tr>
+                  <th>Lp.</th>
+                  <th>Komentarz</th>
+                  <th>Edytuj</th>
+                  <th>Usuń</th>
+              </tr>
+          </thead>
+          <tbody>
+              <CommentsItem v-for="(comment, index) in comments"
+              :comment="comment"
+              :index="index"
+              :key="comment.idComments"
+              />
+          </tbody>
+      </table>
+
         <br><br>
 
     </div>
@@ -45,15 +65,19 @@
 </template>
 
 <script>
-
+    import CommentsItem from "../CommentsItem/CommentsItem";
+    import store from "vuex";
     import { mapActions } from "vuex";
 
     export default {
         name: 'TaskDescription',
         props: ["id"],
         computed: {
-            task() {
+            task () {
                 return this.$store.getters.task( Number(this.$route.params.id) );
+            },
+            comments () {
+                return this.$store.getters.comments( Number(this.$route.params.id));
             }
         },
         methods: {
@@ -77,8 +101,10 @@
                     value: e.target.value
                 })
             },
+        },
+        components: {
+          CommentsItem
         }
-
     };
 
 </script>
@@ -86,5 +112,8 @@
 <style scope>
     label {
       font-weight: bold;
+    }
+    h1 {
+      margin-top: 50px;
     }
 </style>

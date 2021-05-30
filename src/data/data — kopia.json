@@ -3,18 +3,7 @@
   "description": "Zadanie 1 polegające na ...",
   "status": "initiated",
   "deadline": "Sep 12 2021 15:24:18 GMT+0200",
-  "priority": 1,
-  "comments": [
-    { "idTask" : 1,
-      "idComments" : 1,
-      "content" : "Komentarz 1"
-    },
-    {
-      "idTask" : 1,
-      "idComments" : 2,
-      "content" : "Komentarz 2"
-    }
-  ]
+  "priority": 1
 },
 
 { "id": 2,
@@ -22,14 +11,7 @@
   "description": "Zadanie 2 polegające na ...",
   "status": "initiated",
   "deadline": "Oct 11 2021 14:02:08 GMT+0200",
-  "priority": 2,
-  "comments": [
-    {
-      "idTask" : 2,
-      "idComments" : 1,
-      "content" : "Komentarz 1"
-    }
-  ]
+  "priority": 2
 },
 
 { "id": 3,
@@ -37,14 +19,7 @@
   "description": "Zadanie 3 polegające na ...",
   "status": "inProgress",
   "deadline": "Oct 01 2021 15:04:01 GMT+0200",
-  "priority": 5,
-  "comments": [
-    {
-      "idTask" : 3,
-      "idComments" : 1,
-      "content" : "Komentarz 1"
-    }
-  ]
+  "priority": 5
 },
 
 { "id": 4,
@@ -52,14 +27,7 @@
   "description": "Zadanie 4 polegające na ...",
   "status": "inProgress",
   "deadline": "Aug 10 2021 05:00:18 GMT+0200",
-  "priority": 0,
-  "comments": [
-    {
-      "idTask" : 4,
-      "idComments" : 1,
-      "content" : "Komentarz 1"
-    }
-  ]
+  "priority": 0
 },
 
 { "id": 5,
@@ -67,14 +35,7 @@
   "description": "Zadanie 5 polegające na ...",
   "status": "inProgress",
   "deadline": "Aug 10 2021 05:00:18 GMT+0200",
-  "priority": 2,
-  "comments": [
-    {
-      "idTask" : 5,
-      "idComments" : 1,
-      "content" : "Komentarz 1"
-    }
-  ]
+  "priority": 2
 },
 
 { "id": 6,
@@ -82,14 +43,7 @@
   "description": "Zadanie 6 polegające na ...",
   "status": "completed",
   "deadline": "Sep 12 2021 15:24:18 GMT+0200",
-  "priority": 1,
-  "comments": [
-    {
-      "idTask" : 6,
-      "idComments" : 1,
-      "content" : "Komentarz 1"
-    }
-  ]
+  "priority": 1
 },
 
 { "id": 7,
@@ -97,14 +51,7 @@
   "description": "Zadanie 7 polegające na ...",
   "status": "completed",
   "deadline": "Jul 01 2021 01:00:00 GMT+0200",
-  "priority": 4,
-  "comments": [
-    {
-      "idTask" : 7,
-      "idComments" : 1,
-      "content" : "Komentarz 1"
-    }
-  ]
+  "priority": 4
 },
 
 { "id": 8,
@@ -112,14 +59,7 @@
   "description": "Zadanie 8 polegające na ...",
   "status": "completed",
   "deadline": "Jun 01 2021 02:00:00 GMT+0200",
-  "priority": 2,
-  "comments": [
-    {
-      "idTask" : 8,
-      "idComments" : 1,
-      "content" : "Komentarz 1"
-    }
-  ]
+  "priority": 2
 },
 
 { "id": 9,
@@ -127,14 +67,7 @@
   "description": "Zadanie 9 polegające na ...",
   "status": "accepted",
   "deadline": "Jul 01 2021 11:05:04 GMT+0200",
-  "priority": 5,
-  "comments": [
-    {
-      "idTask" : 9,
-      "idComments" : 1,
-      "content" : "Komentarz 1"
-    }
-  ]
+  "priority": 5
 },
 
 { "id": 10,
@@ -142,13 +75,6 @@
   "description": "Zadanie 10 polegające na ...",
   "status": "archived",
   "deadline": "Mar 01 2021 01:00:00 GMT+0100",
-  "priority": 4,
-  "comments": [
-    {
-      "idTask" : 10,
-      "idComments" : 1,
-      "content" : "Komentarz 1"
-    }
-  ]
- }
+  "priority": 4
+}
 ]

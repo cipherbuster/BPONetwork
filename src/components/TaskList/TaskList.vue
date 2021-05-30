@@ -5,7 +5,7 @@
       <div class="column col-3">
         <label class="form-label">Status</label>
         <select class="form-select" v-model="status">
-          <option value="">all</option>
+          <option value="all">all</option>
           <option value="initiated">initiated</option>
           <option value="inProgress">inProgress</option>
           <option value="completed">completed</option>
@@ -70,7 +70,7 @@
         name: "TaskList",
         data() {
           return {
-            status: "",
+            status: "all",
             priority: "all"
           }
         },
@@ -157,6 +157,21 @@
             }else if(this.status === "archived" && this.priority === "all"){
               return this.$store.getters.archived;
             }
+
+            else if(this.status === "all" && this.priority == 0){
+                return this.$store.getters.priority0;
+            }else if(this.status === "all" && this.priority == 1){
+                return this.$store.getters.priority1;
+            }else if(this.status === "all" && this.priority == 2){
+                return this.$store.getters.priority2;
+            }else if(this.status === "all" && this.priority == 3){
+                return this.$store.getters.priority3;
+            }else if(this.status === "all" && this.priority == 4){
+                return this.$store.getters.priority4;
+            }else if(this.status === "all" && this.priority == 5){
+                return this.$store.getters.priority5;
+            }
+
 
             else {
               return this.$store.state.tasks;
