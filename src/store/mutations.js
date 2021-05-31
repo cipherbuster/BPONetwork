@@ -19,8 +19,8 @@ export default {
     //Tworzę obiekt nowego zadania
     var newTask = {
       id: payload.index,
-      performer: "Proszę podać imię i nazwisko oddzielone spacją",
-      description: "Proszę podać opis zadania",
+      performer: "",
+      description: "",
       status: "initiated",
       deadline: d,
       priority: "0"

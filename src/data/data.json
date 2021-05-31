@@ -1,7 +1,7 @@
 [{ "id" : 1,
   "performer": "Jan Kowalski",
   "description": "Zadanie 1 polegające na ...",
-  "status": "initiated",
+  "status": "wprowadzone",
   "deadline": "Sep 12 2021 15:24:18 GMT+0200",
   "priority": 1
 },
@@ -9,7 +9,7 @@
 { "id" : 2,
   "performer": "Anna Malinowska",
   "description": "Zadanie 2 polegające na ...",
-  "status": "initiated",
+  "status": "wprowadzone",
   "deadline": "Oct 11 2021 14:02:08 GMT+0200",
   "priority": 2
 },
@@ -17,7 +17,7 @@
 { "id" : 3,
   "performer": "Jacek Nowak",
   "description": "Zadanie 3 polegające na ...",
-  "status": "inProgress",
+  "status": "wykonywane",
   "deadline": "Oct 01 2021 15:04:01 GMT+0200",
   "priority": 5
 },
@@ -25,7 +25,7 @@
 { "id" : 4,
   "performer": "Bartosz Zieliński",
   "description": "Zadanie 4 polegające na ...",
-  "status": "inProgress",
+  "status": "wykonywane",
   "deadline": "Aug 10 2021 05:00:18 GMT+0200",
   "priority": 0
 },
@@ -33,7 +33,7 @@
 { "id" : 5,
   "performer": "Ewa Złotopolska",
   "description": "Zadanie 5 polegające na ...",
-  "status": "inProgress",
+  "status": "wykonywane",
   "deadline": "Aug 10 2021 05:00:18 GMT+0200",
   "priority": 2
 },
@@ -41,7 +41,7 @@
 { "id" : 6,
   "performer": "Adrianna Kujawa",
   "description": "Zadanie 6 polegające na ...",
-  "status": "completed",
+  "status": "zrobione",
   "deadline": "Sep 12 2021 15:24:18 GMT+0200",
   "priority": 1
 },
@@ -49,7 +49,7 @@
 { "id" : 7,
   "performer": "Jan Kowalski",
   "description": "Zadanie 7 polegające na ...",
-  "status": "completed",
+  "status": "zrobione",
   "deadline": "Jul 01 2021 01:00:00 GMT+0200",
   "priority": 4
 },
@@ -57,7 +57,7 @@
 { "id" : 8,
   "performer": "Ewa Złotopolska",
   "description": "Zadanie 8 polegające na ...",
-  "status": "completed",
+  "status": "zrobione",
   "deadline": "Jun 01 2021 02:00:00 GMT+0200",
   "priority": 2
 },
@@ -65,7 +65,7 @@
 { "id" : 9,
   "performer": "Adrianna Kujawa",
   "description": "Zadanie 9 polegające na ...",
-  "status": "accepted",
+  "status": "zaakceptowane",
   "deadline": "Jul 01 2021 11:05:04 GMT+0200",
   "priority": 5
 },
@@ -73,7 +73,7 @@
 { "id" : 10,
   "performer": "Jacek Nowak",
   "description": "Zadanie 10 polegające na ...",
-  "status": "archived",
+  "status": "zarchiwizowane",
   "deadline": "Mar 01 2021 01:00:00 GMT+0100",
   "priority": 4
 }

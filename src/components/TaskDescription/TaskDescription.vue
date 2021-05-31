@@ -6,21 +6,21 @@
 
         <div class="form-group col-3">
             <label class="form-label">Wykonawca</label>
-            <input type="text" class="form-input" :value="task.performer" @change="updateTask($event, 'performer')" />
+            <input type="text" class="form-input" :value="task.performer" placeholder="Imię i nazwisko" @change="updateTask($event, 'performer')" />
         </div>
 
         <div class="form-group col-6">
             <label class="form-label">Opis</label>
-            <textarea rows="10" class="form-input" :value="task.description" @change="updateTask($event, 'description')" />
+            <textarea rows="10" class="form-input" :value="task.description" placeholder="Opis zadania" @change="updateTask($event, 'description')" />
         </div>
 
         <label class="form-label">Status</label>
         <select class="form-select col-3" :value="task.status" @change="updateTask($event, 'status')">
-          <option value="initiated">initiated</option>
-          <option value="inProgress">inProgress</option>
-          <option value="completed">completed</option>
-          <option value="accepted">accepted</option>
-          <option value="archived">archived</option>
+          <option value="wprowadzone">wprowadzone</option>
+          <option value="wykonywane">wykonywane</option>
+          <option value="zrobione">zrobione</option>
+          <option value="zaakceptowane">zaakceptowane</option>
+          <option value="zarchiwizowane">zarchiwizowane</option>
         </select>
 
       <div class="form-group col-6">
