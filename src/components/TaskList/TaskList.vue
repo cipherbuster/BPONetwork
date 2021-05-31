@@ -181,21 +181,26 @@
         methods: {
             ...mapActions(["add"]),
             addTask() {
-              // Poniżej w pętlach forEach tworzę tablicę złożoną ze wszystkich pól id tablicy tasks
-              // oraz szukam maksymalnego id w tej tablicy, które później powiększone o 1 będzie id
-              // dla nowego rekordu (obiektu zadania)
-              var index = 0;
-              var indexTable = [];
-              this.tasks.forEach( (e) => {
-                indexTable.push(e.id);
-              });
+              // Poniżej ustalam losowy numer id zadania do przekazania.
+              // W prawdziwej aplikacji po commitowaniu akcji i wstawieniu rekrodu do bazy danych,
+              // z bazy danych można zwrócić automatycznie wygenerowane id. Tutaj sprawdzam jeszcze
+              // w pętli czy id jest unikatowe;
 
-              indexTable.forEach( (e) => {
-                if(index < e){
-                  index = e
+              var index = 0;
+
+              loop:
+              while (true) {
+              index = Math.round(Math.random()*10000+1);
+
+                for (var i = 0; this.$store.state.comments.length; i++) {
+                  if (index === this.$store.state.comments[i].idComments) {
+                    break;
+                  } else {
+                    break loop;
+                  }
                 };
-              });
-              index++;
+             }
+
               this.add({
                 index: index
               });

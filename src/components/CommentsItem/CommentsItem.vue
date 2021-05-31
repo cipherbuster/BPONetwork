@@ -2,14 +2,14 @@
     <tr>
         <td>{{ index + 1 }}.</td>
         <td>
-            <template v-if="editMode">
+            <!-- <template v-if="editMode">
             <div class="form-group">
               <input type="text" class="form-input" :value="comment.content" @change="updateComment($event)"/>
             </div>
-            </template>
-            <template v-else>
+            </template> -->
+            <!-- <template v-else> -->
                 {{ comment.content }}
-            </template>
+            <!-- </template> -->
         </td>
         <td>
           <button class="btn btn-primary" @click="editMode = !editMode">

@@ -1,4 +1,4 @@
-[{"id": 1,
+[{ "id" : 1,
   "performer": "Jan Kowalski",
   "description": "Zadanie 1 polegające na ...",
   "status": "initiated",
@@ -6,7 +6,7 @@
   "priority": 1
 },
 
-{ "id": 2,
+{ "id" : 2,
   "performer": "Anna Malinowska",
   "description": "Zadanie 2 polegające na ...",
   "status": "initiated",
@@ -14,7 +14,7 @@
   "priority": 2
 },
 
-{ "id": 3,
+{ "id" : 3,
   "performer": "Jacek Nowak",
   "description": "Zadanie 3 polegające na ...",
   "status": "inProgress",
@@ -22,7 +22,7 @@
   "priority": 5
 },
 
-{ "id": 4,
+{ "id" : 4,
   "performer": "Bartosz Zieliński",
   "description": "Zadanie 4 polegające na ...",
   "status": "inProgress",
@@ -30,7 +30,7 @@
   "priority": 0
 },
 
-{ "id": 5,
+{ "id" : 5,
   "performer": "Ewa Złotopolska",
   "description": "Zadanie 5 polegające na ...",
   "status": "inProgress",
@@ -38,7 +38,7 @@
   "priority": 2
 },
 
-{ "id": 6,
+{ "id" : 6,
   "performer": "Adrianna Kujawa",
   "description": "Zadanie 6 polegające na ...",
   "status": "completed",
@@ -46,7 +46,7 @@
   "priority": 1
 },
 
-{ "id": 7,
+{ "id" : 7,
   "performer": "Jan Kowalski",
   "description": "Zadanie 7 polegające na ...",
   "status": "completed",
@@ -54,7 +54,7 @@
   "priority": 4
 },
 
-{ "id": 8,
+{ "id" : 8,
   "performer": "Ewa Złotopolska",
   "description": "Zadanie 8 polegające na ...",
   "status": "completed",
@@ -62,7 +62,7 @@
   "priority": 2
 },
 
-{ "id": 9,
+{ "id" : 9,
   "performer": "Adrianna Kujawa",
   "description": "Zadanie 9 polegające na ...",
   "status": "accepted",
@@ -70,7 +70,7 @@
   "priority": 5
 },
 
-{ "id": 10,
+{ "id" : 10,
   "performer": "Jacek Nowak",
   "description": "Zadanie 10 polegające na ...",
   "status": "archived",

@@ -40,7 +40,7 @@
 
       <h1>Komentarze</h1>
 
-      <button class="btn btn-primary" @click="addComment()">
+      <button class="btn btn-primary" @click="addComment();">
           <i class="icon icon-plus"></i><b>&nbsp&nbspDODAJ KOMENTARZ</b>
       </button>
 
@@ -59,7 +59,7 @@
                 <CommentsItem v-for="(comment, index) in comments"
                 :comment="comment"
                 :index="index"
-                :key="comment.idComments"
+                :key="comment.id"
                 />
             </tbody>
         </table>
@@ -117,31 +117,36 @@
 
           ...mapActions(["addCommentAction"]),
           addComment() {
-            // Poniżej w pętlach forEach tworzę tablicę złożoną ze wszystkich pól id tablicy comments
-            // oraz szukam maksymalnego id w tej tablicy, które później powiększone o 1 będzie id
-            // dla nowego rekordu (obiektu zadania)
-            var index = 0;
-            var indexTable = [];
-            this.comments.forEach( (e) => {
-              indexTable.push(e.idComments);
-            });
+            // Poniżej ustalam losowy numer id komentarza do przekazania.
+            // W prawdziwej aplikacji po commitowaniu akcji i wstawieniu rekrodu do bazy danych,
+            // z bazy danych można zwrócić automatycznie wygenerowane id. Tutaj sprawdzam jeszcze
+            // w pętli czy id jest unikatowe;
 
-            indexTable.forEach( (e) => {
-              if(index < e){
-                index = e
+            var index = 0;
+
+            loop:
+            while (true) {
+            index = Math.round(Math.random()*1000+1);
+
+              for (var i = 0; this.$store.state.comments.length; i++) {
+                if (index === this.$store.state.comments[i].idComments) {
+                  break;
+                } else {
+                  break loop;
+                }
               };
-            });
-            index++;
+            }
 
             //Poniżej ustalam idTask dla obecnego zadania.
 
             const idT = this.$route.params.id;
 
+            //Poniżej ustalam idComments dla obecnego komentarza.
+
             this.addCommentAction({
-              index: index,
+              indexComments: index,
               indexTask: idT
             });
-
           },
 
 

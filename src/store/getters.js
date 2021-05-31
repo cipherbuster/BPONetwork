@@ -148,9 +148,10 @@ export default {
     comments(state) {
 
         return id => {
-            const index = _.findIndex(state.comments, ["idTask", id]);
 
-            if (index >= 0) {
+          const index = _.findIndex(state.comments, ["idTask", id]);
+
+          if (index >= 0) {
 
               var hCommentsArray = [];
 
@@ -160,9 +161,9 @@ export default {
                };
               }
             };
-
+        
             return hCommentsArray;
         };
 
-    },
+    }
 };

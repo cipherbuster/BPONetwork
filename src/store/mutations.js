@@ -43,10 +43,10 @@ export default {
       if (index >= 0) {
 
           for (var i = 0; state.comments.length; i++) {
-              if (state.comments[i].idTask == payload.idTask && state.comments[i].idComments == payload.idComments) {
-              state.comments.splice(i, 1); return;
+            if (state.comments[i].idTask === payload.idTask && state.comments[i].idComments === payload.idComments) {
+              state.comments.splice(i, 1); console.log("usuwam"); break;
             };
-        }
+          }
       }
     },
 
@@ -54,14 +54,16 @@ export default {
 
       //Tworzę obiekt nowego zadania
       var newComment = {
-        idComments: payload.index,
-        idTask: payload.indexTask,
+        id: payload.indexComments,
+        idTask: Number(payload.indexTask),
         content: "Wpisz treść"
       };
 
 
       //wstawiam nowe zadanie do tabeli comments w store
+
       Vue.set(state.comments, state.comments.length, newComment);
+
     },
 
     updateCommentMutation(state, payload) {
