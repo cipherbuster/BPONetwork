@@ -10,117 +10,184 @@ export default {
 
     },
 
-    initiatedP0(state) {
-        return state.tasks.filter(task => (task.status === "initiated" && task.priority === 0));
+    wprowadzoneP0(state) {
+        return state.tasks.filter(task => (task.status === "wprowadzone" && task.priority === 0));
     },
-    initiatedP1(state) {
-        return state.tasks.filter(task => (task.status === "initiated" && task.priority === 1));
+    wprowadzoneP1(state) {
+        return state.tasks.filter(task => (task.status === "wprowadzone" && task.priority === 1));
     },
-    initiatedP2(state) {
-        return state.tasks.filter(task => (task.status === "initiated" && task.priority === 2));
+    wprowadzoneP2(state) {
+        return state.tasks.filter(task => (task.status === "wprowadzone" && task.priority === 2));
     },
-    initiatedP3(state) {
-        return state.tasks.filter(task => (task.status === "initiated" && task.priority === 3));
+    wprowadzoneP3(state) {
+        return state.tasks.filter(task => (task.status === "wprowadzone" && task.priority === 3));
     },
-    initiatedP4(state) {
-        return state.tasks.filter(task => (task.status === "initiated" && task.priority === 4));
+    wprowadzoneP4(state) {
+        return state.tasks.filter(task => (task.status === "wprowadzone" && task.priority === 4));
     },
-    initiatedP5(state) {
-        return state.tasks.filter(task => (task.status === "initiated" && task.priority === 5));
+    wprowadzoneP5(state) {
+        return state.tasks.filter(task => (task.status === "wprowadzone" && task.priority === 5));
     },
-    initiated(state) {
-        return state.tasks.filter(task => task.status === "initiated");
-    },
-
-
-    inProgressP0(state) {
-        return state.tasks.filter(task => (task.status === "inProgress" && task.priority === 0));
-    },
-    inProgressP1(state) {
-        return state.tasks.filter(task => (task.status === "inProgress" && task.priority === 1));
-    },
-    inProgressP2(state) {
-        return state.tasks.filter(task => (task.status === "inProgress" && task.priority === 2));
-    },
-    inProgressP3(state) {
-        return state.tasks.filter(task => (task.status === "inProgress" && task.priority === 3));
-    },
-    inProgressP4(state) {
-        return state.tasks.filter(task => (task.status === "inProgress" && task.priority === 4));
-    },
-    inProgressP5(state) {
-        return state.tasks.filter(task => (task.status === "inProgress" && task.priority === 5));
-    },
-    inProgress(state) {
-        return state.tasks.filter(task => task.status === "inProgress");
+    wprowadzone(state) {
+        return state.tasks.filter(task => task.status === "wprowadzone");
     },
 
 
-    completedP0(state) {
-        return state.tasks.filter(task => (task.status === "completed" && task.priority === 0));
+    wykonywanesP0(state) {
+        return state.tasks.filter(task => (task.status === "wykonywanes" && task.priority === 0));
     },
-    completedP1(state) {
-        return state.tasks.filter(task => (task.status === "completed" && task.priority === 1));
+    wykonywanesP1(state) {
+        return state.tasks.filter(task => (task.status === "wykonywanes" && task.priority === 1));
     },
-    completedP2(state) {
-        return state.tasks.filter(task => (task.status === "completed" && task.priority === 2));
+    wykonywanesP2(state) {
+        return state.tasks.filter(task => (task.status === "wykonywanes" && task.priority === 2));
     },
-    completedP3(state) {
-        return state.tasks.filter(task => (task.status === "completed" && task.priority === 3));
+    wykonywanesP3(state) {
+        return state.tasks.filter(task => (task.status === "wykonywanes" && task.priority === 3));
     },
-    completedP4(state) {
-        return state.tasks.filter(task => (task.status === "completed" && task.priority === 4));
+    wykonywanesP4(state) {
+        return state.tasks.filter(task => (task.status === "wykonywanes" && task.priority === 4));
     },
-    completedP5(state) {
-        return state.tasks.filter(task => (task.status === "completed" && task.priority === 5));
+    wykonywanesP5(state) {
+        return state.tasks.filter(task => (task.status === "wykonywanes" && task.priority === 5));
     },
-    completed(state) {
-        return state.tasks.filter(task => task.status === "completed");
-    },
-
-
-    acceptedP0(state) {
-        return state.tasks.filter(task => (task.status === "accepted" && task.priority === 0));
-    },
-    acceptedP1(state) {
-        return state.tasks.filter(task => (task.status === "accepted" && task.priority === 1));
-    },
-    acceptedP2(state) {
-        return state.tasks.filter(task => (task.status === "accepted" && task.priority === 2));
-    },
-    acceptedP3(state) {
-        return state.tasks.filter(task => (task.status === "accepted" && task.priority === 3));
-    },
-    acceptedP4(state) {
-        return state.tasks.filter(task => (task.status === "accepted" && task.priority === 4));
-    },
-    acceptedP5(state) {
-        return state.tasks.filter(task => (task.status === "accepted" && task.priority === 5));
-    },
-    accepted(state) {
-        return state.tasks.filter(task => task.status === "accepted");
+    wykonywanes(state) {
+        return state.tasks.filter(task => task.status === "wykonywanes");
     },
 
 
-    archivedP0(state) {
-        return state.tasks.filter(task => (task.status === "archived" && task.priority === 0));
+    zrobioneP0(state) {
+        return state.tasks.filter(task => (task.status === "zrobione" && task.priority === 0));
     },
-    archivedP1(state) {
-        return state.tasks.filter(task => (task.status === "archived" && task.priority === 1));
+    zrobioneP1(state) {
+        return state.tasks.filter(task => (task.status === "zrobione" && task.priority === 1));
     },
-    archivedP2(state) {
-        return state.tasks.filter(task => (task.status === "archived" && task.priority === 2));
+    zrobioneP2(state) {
+        return state.tasks.filter(task => (task.status === "zrobione" && task.priority === 2));
     },
-    archivedP3(state) {
-        return state.tasks.filter(task => (task.status === "archived" && task.priority === 3));
+    zrobioneP3(state) {
+        return state.tasks.filter(task => (task.status === "zrobione" && task.priority === 3));
     },
-    archivedP4(state) {
-        return state.tasks.filter(task => (task.status === "archived" && task.priority === 4));
+    zrobioneP4(state) {
+        return state.tasks.filter(task => (task.status === "zrobione" && task.priority === 4));
     },
-    archivedP5(state) {
-        return state.tasks.filter(task => (task.status === "archived" && task.priority === 5));
+    zrobioneP5(state) {
+        return state.tasks.filter(task => (task.status === "zrobione" && task.priority === 5));
     },
-    archived(state) {
-        return state.tasks.filter(task => task.status === "archived");
+    zrobione(state) {
+        return state.tasks.filter(task => task.status === "zrobione");
+    },
+
+
+    zaakceptowaneP0(state) {
+        return state.tasks.filter(task => (task.status === "zaakceptowane" && task.priority === 0));
+    },
+    zaakceptowaneP1(state) {
+        return state.tasks.filter(task => (task.status === "zaakceptowane" && task.priority === 1));
+    },
+    zaakceptowaneP2(state) {
+        return state.tasks.filter(task => (task.status === "zaakceptowane" && task.priority === 2));
+    },
+    zaakceptowaneP3(state) {
+        return state.tasks.filter(task => (task.status === "zaakceptowane" && task.priority === 3));
+    },
+    zaakceptowaneP4(state) {
+        return state.tasks.filter(task => (task.status === "zaakceptowane" && task.priority === 4));
+    },
+    zaakceptowaneP5(state) {
+        return state.tasks.filter(task => (task.status === "zaakceptowane" && task.priority === 5));
+    },
+    zaakceptowane(state) {
+        return state.tasks.filter(task => task.status === "zaakceptowane");
+    },
+
+
+    zarchiwizowaneP0(state) {
+        return state.tasks.filter(task => (task.status === "zarchiwizowane" && task.priority === 0));
+    },
+    zarchiwizowaneP1(state) {
+        return state.tasks.filter(task => (task.status === "zarchiwizowane" && task.priority === 1));
+    },
+    zarchiwizowaneP2(state) {
+        return state.tasks.filter(task => (task.status === "zarchiwizowane" && task.priority === 2));
+    },
+    zarchiwizowaneP3(state) {
+        return state.tasks.filter(task => (task.status === "zarchiwizowane" && task.priority === 3));
+    },
+    zarchiwizowaneP4(state) {
+        return state.tasks.filter(task => (task.status === "zarchiwizowane" && task.priority === 4));
+    },
+    zarchiwizowaneP5(state) {
+        return state.tasks.filter(task => (task.status === "zarchiwizowane" && task.priority === 5));
+    },
+    zarchiwizowane(state) {
+        return state.tasks.filter(task => task.status === "zarchiwizowane");
+    },
+
+    priority0(state) {
+        return state.tasks.filter(task => task.priority === 0);
+    },
+    priority1(state) {
+        return state.tasks.filter(task => task.priority === 1);
+    },
+    priority2(state) {
+        return state.tasks.filter(task => task.priority === 2);
+    },
+    priority3(state) {
+        return state.tasks.filter(task => task.priority === 3);
+    },
+    priority4(state) {
+        return state.tasks.filter(task => task.priority === 4);
+    },
+    priority5(state) {
+        return state.tasks.filter(task => task.priority === 5);
+    },
+
+    // Getter do wyświetlania komentarzy
+
+    comments(state) {
+
+        return id => {
+
+          const index = _.findIndex(state.comments, ["idTask", id]);
+
+          if (index >= 0) {
+
+              var hCommentsArray = [];
+
+              for (var i = 0; i < state.comments.length; i++) {
+                if (state.comments[i].idTask == id) {
+                hCommentsArray.push(state.comments[i]);
+               };
+              }
+            };
+
+            return hCommentsArray;
+        };
+
+    },
+
+    // Getter do wyświetlania załączników
+
+    attachments(state) {
+
+        return id => {
+
+          const index = _.findIndex(state.attachments, ["idTask", id]);
+
+          if (index >= 0) {
+
+              var hAttachmentArray = [];
+
+              for (var i = 0; i < state.attachments.length; i++) {
+                if (state.attachments[i].idTask == id) {
+                hAttachmentArray.push(state.attachments[i]);
+               };
+              }
+            };
+
+            return hAttachmentArray;
+        };
+
     }
 };

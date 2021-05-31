@@ -5,12 +5,12 @@
       <div class="column col-3">
         <label class="form-label">Status</label>
         <select class="form-select" v-model="status">
-          <option value="">all</option>
-          <option value="initiated">initiated</option>
-          <option value="inProgress">inProgress</option>
-          <option value="completed">completed</option>
-          <option value="accepted">accepted</option>
-          <option value="archived">archived</option>
+          <option value="all">all</option>
+          <option value="wprowadzone">wprowadzone</option>
+          <option value="wykonywane">wykonywane</option>
+          <option value="zrobione">zrobione</option>
+          <option value="zaakceptowane">zaakceptowane</option>
+          <option value="zarchiwizowane">zarchiwizowane</option>
         </select>
       </div>
 
@@ -70,7 +70,7 @@
         name: "TaskList",
         data() {
           return {
-            status: "",
+            status: "all",
             priority: "all"
           }
         },
@@ -78,85 +78,100 @@
           // Poniżej ustawiam wszystkie możliwości dla podwójnego filtru status & priority
           // i wywołuję odpowiedni getter.
           tasks() {
-            if(this.status === "initiated" && this.priority == 0){
-              return this.$store.getters.initiatedP0;
-            }else if (this.status === "initiated" && this.priority == 1){
-              return this.$store.getters.initiatedP1;
-            }else if (this.status === "initiated" && this.priority == 2){
-              return this.$store.getters.initiatedP2;
-            }else if (this.status === "initiated" && this.priority == 3){
-              return this.$store.getters.initiatedP3;
-            }else if (this.status === "initiated" && this.priority == 4){
-              return this.$store.getters.initiatedP4;
-            }else if (this.status === "initiated" && this.priority == 5){
-              return this.$store.getters.initiatedP5;
-            }else if(this.status === "initiated" && this.priority === "all"){
-                return this.$store.getters.initiated;
+            if(this.status === "wprowadzone" && this.priority == 0){
+              return this.$store.getters.wprowadzoneP0;
+            }else if (this.status === "wprowadzone" && this.priority == 1){
+              return this.$store.getters.wprowadzoneP1;
+            }else if (this.status === "wprowadzone" && this.priority == 2){
+              return this.$store.getters.wprowadzoneP2;
+            }else if (this.status === "wprowadzone" && this.priority == 3){
+              return this.$store.getters.wprowadzoneP3;
+            }else if (this.status === "wprowadzone" && this.priority == 4){
+              return this.$store.getters.wprowadzoneP4;
+            }else if (this.status === "wprowadzone" && this.priority == 5){
+              return this.$store.getters.wprowadzoneP5;
+            }else if(this.status === "wprowadzone" && this.priority === "all"){
+                return this.$store.getters.wprowadzone;
             }
 
-            else if(this.status === "inProgress" && this.priority == 0){
-              return this.$store.getters.inProgressP0;
-            }else if(this.status === "inProgress" && this.priority == 1){
-              return this.$store.getters.inProgressP1;
-            }else if(this.status === "inProgress" && this.priority == 2){
-              return this.$store.getters.inProgressP2;
-            }else if(this.status === "inProgress" && this.priority == 3){
-              return this.$store.getters.inProgressP3;
-            }else if(this.status === "inProgress" && this.priority == 4){
-              return this.$store.getters.inProgressP4;
-            }else if(this.status === "inProgress" && this.priority == 5){
-              return this.$store.getters.inProgressP5;
-            }else if(this.status === "inProgress" && this.priority === "all"){
-                return this.$store.getters.inProgress;
+            else if(this.status === "wykonywane" && this.priority == 0){
+              return this.$store.getters.wykonywaneP0;
+            }else if(this.status === "wykonywane" && this.priority == 1){
+              return this.$store.getters.wykonywaneP1;
+            }else if(this.status === "wykonywane" && this.priority == 2){
+              return this.$store.getters.wykonywaneP2;
+            }else if(this.status === "wykonywane" && this.priority == 3){
+              return this.$store.getters.wykonywaneP3;
+            }else if(this.status === "wykonywane" && this.priority == 4){
+              return this.$store.getters.wykonywaneP4;
+            }else if(this.status === "wykonywane" && this.priority == 5){
+              return this.$store.getters.wykonywaneP5;
+            }else if(this.status === "wykonywane" && this.priority === "all"){
+                return this.$store.getters.wykonywane;
             }
 
-            else if(this.status === "completed" && this.priority == 0){
-              return this.$store.getters.completedP0;
-            }else if(this.status === "completed" && this.priority == 1){
-              return this.$store.getters.completedP1;
-            }else if(this.status === "completed" && this.priority == 2){
-              return this.$store.getters.completedP2;
-            }else if(this.status === "completed" && this.priority == 3){
-              return this.$store.getters.completedP3;
-            }else if(this.status === "completed" && this.priority == 4){
-              return this.$store.getters.completedP4;
-            }else if(this.status === "completed" && this.priority == 5){
-              return this.$store.getters.completedP5;
-            }else if(this.status === "completed" && this.priority === "all"){
-                return this.$store.getters.completed;
+            else if(this.status === "zrobione" && this.priority == 0){
+              return this.$store.getters.zrobioneP0;
+            }else if(this.status === "zrobione" && this.priority == 1){
+              return this.$store.getters.zrobioneP1;
+            }else if(this.status === "zrobione" && this.priority == 2){
+              return this.$store.getters.zrobioneP2;
+            }else if(this.status === "zrobione" && this.priority == 3){
+              return this.$store.getters.zrobioneP3;
+            }else if(this.status === "zrobione" && this.priority == 4){
+              return this.$store.getters.zrobioneP4;
+            }else if(this.status === "zrobione" && this.priority == 5){
+              return this.$store.getters.zrobioneP5;
+            }else if(this.status === "zrobione" && this.priority === "all"){
+                return this.$store.getters.zrobione;
             }
 
-            else if(this.status === "accepted" && this.priority == 0){
-              return this.$store.getters.acceptedP0;
-            }else if(this.status === "accepted" && this.priority == 1){
-                return this.$store.getters.acceptedP1;
-            }else if(this.status === "accepted" && this.priority == 2){
-                return this.$store.getters.acceptedP2;
-            }else if(this.status === "accepted" && this.priority == 3){
-                return this.$store.getters.acceptedP3;
-            }else if(this.status === "accepted" && this.priority == 4){
-                return this.$store.getters.acceptedP4;
-            }else if(this.status === "accepted" && this.priority == 5){
-                return this.$store.getters.acceptedP5;
-            }else if(this.status === "accepted" && this.priority === "all"){
-                return this.$store.getters.accepted;
+            else if(this.status === "zaakceptowane" && this.priority == 0){
+              return this.$store.getters.zaakceptowaneP0;
+            }else if(this.status === "zaakceptowane" && this.priority == 1){
+                return this.$store.getters.zaakceptowaneP1;
+            }else if(this.status === "zaakceptowane" && this.priority == 2){
+                return this.$store.getters.zaakceptowaneP2;
+            }else if(this.status === "zaakceptowane" && this.priority == 3){
+                return this.$store.getters.zaakceptowaneP3;
+            }else if(this.status === "zaakceptowane" && this.priority == 4){
+                return this.$store.getters.zaakceptowaneP4;
+            }else if(this.status === "zaakceptowane" && this.priority == 5){
+                return this.$store.getters.zaakceptowaneP5;
+            }else if(this.status === "zaakceptowane" && this.priority === "all"){
+                return this.$store.getters.zaakceptowane;
             }
 
-            else if(this.status === "archived" && this.priority == 0){
-              return this.$store.getters.archivedP0;
-            }else if(this.status === "archived" && this.priority == 1){
-              return this.$store.getters.archivedP1;
-            }else if(this.status === "archived" && this.priority == 2){
-              return this.$store.getters.archivedP2;
-            }else if(this.status === "archived" && this.priority == 3){
-              return this.$store.getters.archivedP3;
-            }else if(this.status === "archived" && this.priority == 4){
-              return this.$store.getters.archivedP4;
-            }else if(this.status === "archived" && this.priority == 5){
-              return this.$store.getters.archivedP5;
-            }else if(this.status === "archived" && this.priority === "all"){
-              return this.$store.getters.archived;
+            else if(this.status === "zarchiwizowane" && this.priority == 0){
+              return this.$store.getters.zarchiwizowaneP0;
+            }else if(this.status === "zarchiwizowane" && this.priority == 1){
+              return this.$store.getters.zarchiwizowaneP1;
+            }else if(this.status === "zarchiwizowane" && this.priority == 2){
+              return this.$store.getters.zarchiwizowaneP2;
+            }else if(this.status === "zarchiwizowane" && this.priority == 3){
+              return this.$store.getters.zarchiwizowaneP3;
+            }else if(this.status === "zarchiwizowane" && this.priority == 4){
+              return this.$store.getters.zarchiwizowaneP4;
+            }else if(this.status === "zarchiwizowane" && this.priority == 5){
+              return this.$store.getters.zarchiwizowaneP5;
+            }else if(this.status === "zarchiwizowane" && this.priority === "all"){
+              return this.$store.getters.zarchiwizowane;
             }
+
+            else if(this.status === "all" && this.priority == 0){
+                return this.$store.getters.priority0;
+            }else if(this.status === "all" && this.priority == 1){
+                return this.$store.getters.priority1;
+            }else if(this.status === "all" && this.priority == 2){
+                return this.$store.getters.priority2;
+            }else if(this.status === "all" && this.priority == 3){
+                return this.$store.getters.priority3;
+            }else if(this.status === "all" && this.priority == 4){
+                return this.$store.getters.priority4;
+            }else if(this.status === "all" && this.priority == 5){
+                return this.$store.getters.priority5;
+            }
+
 
             else {
               return this.$store.state.tasks;
@@ -166,21 +181,26 @@
         methods: {
             ...mapActions(["add"]),
             addTask() {
-              // Poniżej w pętlach forEach tworzę tablicę złożoną ze wszystkich pól id tablicy tasks
-              // oraz szukam maksymalnego id w tej tablicy, które później powiększone o 1 będzie id
-              // dla nowego rekordu (obiektu zadania)
-              var index = 0;
-              var indexTable = [];
-              this.tasks.forEach( (e) => {
-                indexTable.push(e.id);
-              });
+              // Poniżej ustalam losowy numer id zadania do przekazania.
+              // W prawdziwej aplikacji po commitowaniu akcji i wstawieniu rekrodu do bazy danych,
+              // z bazy danych można zwrócić automatycznie wygenerowane id. Tutaj sprawdzam jeszcze
+              // w pętli czy id jest unikatowe;
 
-              indexTable.forEach( (e) => {
-                if(index < e){
-                  index = e
+              var index = 0;
+
+              loop:
+              while (true) {
+              index = Math.round(Math.random()*10000+1);
+
+                for (var i = 0; this.$store.state.comments.length; i++) {
+                  if (index === this.$store.state.comments[i].idComments) {
+                    break;
+                  } else {
+                    break loop;
+                  }
                 };
-              });
-              index++;
+             }
+
               this.add({
                 index: index
               });

@@ -18,7 +18,43 @@ export default {
     add({ commit, state }, payload) {
       // Tutaj można połączyć się za pomocą np. axios z serverem i dodać zadanie z pustymi polami
       // najpierw na serwerze, a po zwróceniu 200 dodać pusty rekord do tabeli.
-      // następnie za pomocą update można edytować te puste pola (też łączać się najpierw z bazą danych)
       commit ("add", payload);
-    }
+    },
+
+    removeCommentAction ({ commit, state }, payload) {
+      // Tutaj można połączyć się za pomocą np. axios z serverem i usunąć
+      // dane najpierw na serwerze, a po zwróceniu 200 usunąć dane. Dla zaznaczenia
+      // że coś się dzieje ustawiłem Timeout 1s.
+    setTimeout(() => {
+        commit("removeCommentMutation", payload);
+    }, 1000);
+  },
+
+  addCommentAction({ commit, state }, payload) {
+    // Tutaj można połączyć się za pomocą np. axios z serverem i dodać komentarz z pustymi polami
+    // najpierw na serwerze, a po zwróceniu 200 dodać pusty rekord do tabeli.
+    commit ("addCommentMutation", payload);
+  },
+
+  updateCommentAction({ commit, state }, payload) {
+    // Tutaj można połączyć się za pomocą np. axios z serverem i zmienić komentarz
+    // najpierw na serwerze, a po zwróceniu 200 w tabeli.
+    commit ("updateCommentMutation", payload);
+  },
+
+  removeAttachmentAction ({ commit, state }, payload) {
+    // Tutaj można połączyć się za pomocą np. axios z serverem i usunąć
+    // dane najpierw na serwerze, a po zwróceniu 200 usunąć dane. Dla zaznaczenia
+    // że coś się dzieje ustawiłem Timeout 1s.
+  setTimeout(() => {
+      commit("removeAttachmentMutation", payload);
+  }, 1000);
+},
+
+addAttachmentAction({ commit, state }, payload) {
+  // Tutaj można połączyć się za pomocą np. axios z serverem i dodać załącznik najpierw na serwerze,
+  // a po zwróceniu 200 dodać rekord do store.
+  commit ("addAttachmentMutation", payload);
+},
+
 };

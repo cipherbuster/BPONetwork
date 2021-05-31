@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <div class="container grid-lg">
+    <div class="container grid-lg" >>
         <router-view name="heading"></router-view>
     </div>
 
@@ -22,6 +22,6 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
 }
 </script>

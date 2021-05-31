@@ -9,7 +9,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    tasks: require("../data/data")
+    tasks: require("../data/data"),
+    comments: require("../data/comments"),
+    attachments: require("../data/attachments")
   },
   mutations,
   actions,
