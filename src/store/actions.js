@@ -42,4 +42,19 @@ export default {
     commit ("updateCommentMutation", payload);
   },
 
+  removeAttachmentAction ({ commit, state }, payload) {
+    // Tutaj można połączyć się za pomocą np. axios z serverem i usunąć
+    // dane najpierw na serwerze, a po zwróceniu 200 usunąć dane. Dla zaznaczenia
+    // że coś się dzieje ustawiłem Timeout 1s.
+  setTimeout(() => {
+      commit("removeAttachmentMutation", payload);
+  }, 1000);
+},
+
+addAttachmentAction({ commit, state }, payload) {
+  // Tutaj można połączyć się za pomocą np. axios z serverem i dodać załącznik najpierw na serwerze,
+  // a po zwróceniu 200 dodać rekord do store.
+  commit ("addAttachmentMutation", payload);
+},
+
 };

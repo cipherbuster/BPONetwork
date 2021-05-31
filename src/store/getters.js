@@ -161,8 +161,32 @@ export default {
                };
               }
             };
-        
+
             return hCommentsArray;
+        };
+
+    },
+
+    // Getter do wyświetlania załączników
+
+    attachments(state) {
+
+        return id => {
+
+          const index = _.findIndex(state.attachments, ["idTask", id]);
+
+          if (index >= 0) {
+
+              var hAttachmentArray = [];
+
+              for (var i = 0; i < state.attachments.length; i++) {
+                if (state.attachments[i].idTask == id) {
+                hAttachmentArray.push(state.attachments[i]);
+               };
+              }
+            };
+
+            return hAttachmentArray;
         };
 
     }

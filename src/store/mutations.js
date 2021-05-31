@@ -44,7 +44,7 @@ export default {
 
           for (var i = 0; state.comments.length; i++) {
             if (state.comments[i].idTask === payload.idTask && state.comments[i].idComments === payload.idComments) {
-              state.comments.splice(i, 1); console.log("usuwam"); break;
+              state.comments.splice(i, 1); break;
             };
           }
       }
@@ -68,6 +68,35 @@ export default {
 
     updateCommentMutation(state, payload) {
        Vue.set(state.comments[payload.id], "content", payload.value);
+    },
+
+    removeAttachmentMutation(state, payload) {
+      const index = _.findIndex(state.attachments, ["idTask", payload.idTask]);
+     console.log(index);
+      if (index >= 0) {
+
+          for (var i = 0; state.attachments.length; i++) {
+            if (state.attachments[i].idTask === payload.idTask && state.attachments[i].idAttachments === payload.idAttachments) {
+              state.attachments.splice(i, 1); break;
+            };
+          }
+      }
+    },
+
+    addAttachmentMutation(state, payload) {
+
+      //Tworzę obiekt nowego zadania
+      var newComment = {
+        id: payload.indexAttachments,
+        idTask: Number(payload.indexTask),
+        content: payload.content
+      };
+
+
+      //wstawiam nowe zadanie do tabeli comments w store
+
+      Vue.set(state.attachments, state.attachments.length, newComment);
+
     },
 
 

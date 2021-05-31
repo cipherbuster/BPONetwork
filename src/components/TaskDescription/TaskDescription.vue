@@ -69,24 +69,73 @@
 
         <br><br>
 
+        <h1> Załączniki </h1>
+
+
+        <template v-if="!editMode">
+          <button class="btn btn-primary" @click="changeEditMode();">
+              <i class="icon icon-plus"></i><b>&nbsp&nbspDODAJ ZAŁĄCZNIK</b>
+          </button>
+        </template>
+
+        <template v-else>
+          <div class="container">
+            <div class="col-4">
+              <input type="file" class="form-input" @input="addAttachment($event)"/>
+            </div>
+          </div>
+        </template>
+
+
+        <div v-if="isAttachments()">
+
+          <table class="table table-striped table-hover">
+              <thead>
+                  <tr>
+                      <th>Lp.</th>
+                      <th>Załącznik</th>
+                      <th>Usuń</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <AttachmentItem v-for="(attachment, index) in attachments"
+                  :attachment="attachment"
+                  :index="index"
+                  :key="attachment.idAttachments"
+                  />
+              </tbody>
+          </table>
+
+        </div>
+        <div class="toast" v-else> Brak załączników </div>
+
     </div>
 
 </template>
 
 <script>
     import CommentsItem from "../CommentsItem/CommentsItem";
+    import AttachmentItem from "../Attachments/AttachmentItem";
     import store from "vuex";
     import { mapActions } from "vuex";
 
     export default {
         name: 'TaskDescription',
         props: ["id"],
+        data() {
+            return {
+                editMode: false,
+            };
+        },
         computed: {
             task () {
                 return this.$store.getters.task( Number(this.$route.params.id) );
             },
             comments () {
                 return this.$store.getters.comments( Number(this.$route.params.id));
+            },
+            attachments () {
+                return this.$store.getters.attachments ( Number(this.$route.params.id));
             }
         },
         methods: {
@@ -103,10 +152,25 @@
             return year + "-" + month + "-" + day;
           },
 
+          changeEditMode () {
+            this.editMode=!this.editMode;
+          },
+
           isComments: function () {
             const id = Number(this.$route.params.id);
 
             const index = _.findIndex(this.$store.state.comments, ["idTask", id]);
+
+            if (index >= 0) {
+              return true
+            } else {
+              return false
+            }
+          },
+          isAttachments: function () {
+            const id = Number(this.$route.params.id);
+
+            const index = _.findIndex(this.$store.state.attachments, ["idTask", id]);
 
             if (index >= 0) {
               return true
@@ -158,9 +222,47 @@
                 })
             },
 
+            ...mapActions(["addAttachmentAction"]),
+            addAttachment(event) {
+              // Poniżej ustalam losowy numer id komentarza do przekazania.
+              // W prawdziwej aplikacji po commitowaniu akcji i wstawieniu rekrodu do bazy danych,
+              // z bazy danych można zwrócić automatycznie wygenerowane id. Tutaj sprawdzam jeszcze
+              // w pętli czy id jest unikatowe;
+
+              var index = 0;
+
+              loop:
+              while (true) {
+              index = Math.round(Math.random()*1000+1);
+
+                for (var i = 0; this.$store.state.attachments.length; i++) {
+                  if (index === this.$store.state.attachments[i].idAttachments) {
+                    break;
+                  } else {
+                    break loop;
+                  }
+                };
+              }
+
+              //Poniżej ustalam idTask dla obecnego zadania.
+
+              const idT = this.$route.params.id;
+
+              this.addAttachmentAction({
+                indexAttachments: index,
+                indexTask: idT,
+                content: event.target.files[0].name
+                // file: event.target.files[0] tak można przekazać plik i wysłać axios na server;
+              });
+
+            this.editMode=!this.editMode;
+
+            },
+
         },
         components: {
-          CommentsItem
+          CommentsItem,
+          AttachmentItem
         },
 
     };
@@ -173,5 +275,8 @@
     }
     h1 {
       margin-top: 50px;
+    }
+    .toast{
+      margin-top: 20px;
     }
 </style>
